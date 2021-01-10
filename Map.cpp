@@ -12,9 +12,7 @@
 using namespace Ogre;
 using namespace OgreBites;
 
-class GameMap
-	: public ApplicationContext
-		, public InputListener {
+class GameMap: public ApplicationContext, public InputListener {
 public:
 	GameMap();
 
@@ -24,26 +22,22 @@ public:
 
 	bool keyPressed(const KeyboardEvent &evt) override;
 
-	bool mouseMoved (const MouseMotionEvent &evt) override;
+	bool mouseMoved(const MouseMotionEvent &evt) override;
 
-	bool mousePressed (const MouseButtonEvent &evt) override;
+	bool mousePressed(const MouseButtonEvent &evt) override;
 
-	bool mouseReleased (const MouseButtonEvent &evt) override;
+	bool mouseReleased(const MouseButtonEvent &evt) override;
 
 private:
 	SceneNode *camNode;
 	bool movingMouse = false;
 };
 
-
 GameMap::GameMap()
 	: ApplicationContext("GameMap") {
 }
 
-
-GameMap::~GameMap()
-= default;
-
+GameMap::~GameMap() = default;
 
 void GameMap::setup() {
 	// do not forget to call the base first
@@ -152,7 +146,6 @@ void GameMap::setup() {
 	//! [pointlightpos]
 	// -- tutorial section end --
 }
-
 
 bool GameMap::keyPressed(const KeyboardEvent& evt) {
 	if (evt.keysym.sym == SDLK_ESCAPE) {
