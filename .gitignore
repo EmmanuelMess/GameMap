@@ -133,3 +133,5 @@ modules.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/clion+all,c++
 
+Release/*
+
