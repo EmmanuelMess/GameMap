@@ -30,6 +30,7 @@ public:
 
 private:
 	SceneNode *camNode;
+	SceneNode *pointLightNode;
 	bool movingMouse = false;
 };
 
@@ -140,7 +141,7 @@ void GameMap::setup() {
 	//! [pointlightcolor]
 
 	//! [pointlightpos]
-	SceneNode *pointLightNode = scnMgr->getRootSceneNode()->createChildSceneNode();
+	pointLightNode = scnMgr->getRootSceneNode()->createChildSceneNode();
 	pointLightNode->attachObject(pointLight);
 	pointLightNode->setPosition(Vector3(0, 150, 250));
 	//! [pointlightpos]
@@ -159,6 +160,7 @@ bool GameMap::mouseMoved(const MouseMotionEvent &evt) {
 	if(movingMouse) {
 		auto movement = Vector3(-evt.xrel, 0, -evt.yrel);
 		camNode->setPosition(camNode->getPosition() + movement);
+		pointLightNode->setPosition(pointLightNode->getPosition() + movement);
 		return true;
 	}
 
