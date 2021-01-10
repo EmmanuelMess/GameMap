@@ -180,7 +180,7 @@ bool TutorialApplication::mouseReleased(const MouseButtonEvent &evt) {
 	return InputListener::mouseReleased(evt);
 }
 
-int main(int argc, char **argv) {
+int main() {
 	try {
 		TutorialApplication app;
 		app.initApp();
