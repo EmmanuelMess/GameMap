@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.8)
-project(OgreTutorialsSample)
+project(GameMap)
 
 # required for Ogre 1.11+
 set(CMAKE_CXX_STANDARD 11)

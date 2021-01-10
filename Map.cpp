@@ -12,13 +12,13 @@
 using namespace Ogre;
 using namespace OgreBites;
 
-class TutorialApplication
+class GameMap
 	: public ApplicationContext
 		, public InputListener {
 public:
-	TutorialApplication();
+	GameMap();
 
-	~TutorialApplication() override;
+	~GameMap() override;
 
 	void setup() override;
 
@@ -36,16 +36,16 @@ private:
 };
 
 
-TutorialApplication::TutorialApplication()
-	: ApplicationContext("OgreTutorialApp") {
+GameMap::GameMap()
+	: ApplicationContext("GameMap") {
 }
 
 
-TutorialApplication::~TutorialApplication()
+GameMap::~GameMap()
 = default;
 
 
-void TutorialApplication::setup() {
+void GameMap::setup() {
 	// do not forget to call the base first
 	ApplicationContext::setup();
 	addInputListener(this);
@@ -154,7 +154,7 @@ void TutorialApplication::setup() {
 }
 
 
-bool TutorialApplication::keyPressed(const KeyboardEvent& evt) {
+bool GameMap::keyPressed(const KeyboardEvent& evt) {
 	if (evt.keysym.sym == SDLK_ESCAPE) {
 
 	}
@@ -162,27 +162,28 @@ bool TutorialApplication::keyPressed(const KeyboardEvent& evt) {
 	return true;
 }
 
-bool TutorialApplication::mouseMoved(const MouseMotionEvent &evt) {
+bool GameMap::mouseMoved(const MouseMotionEvent &evt) {
 	if(movingMouse) {
 		auto movement = Vector3(-evt.xrel, 0, -evt.yrel);
 		camNode->setPosition(camNode->getPosition() + movement);
 	}
+
 	return InputListener::mouseMoved(evt);
 }
 
-bool TutorialApplication::mousePressed(const MouseButtonEvent &evt) {
+bool GameMap::mousePressed(const MouseButtonEvent &evt) {
 	movingMouse = true;
 	return InputListener::mousePressed(evt);
 }
 
-bool TutorialApplication::mouseReleased(const MouseButtonEvent &evt) {
+bool GameMap::mouseReleased(const MouseButtonEvent &evt) {
 	movingMouse = false;
 	return InputListener::mouseReleased(evt);
 }
 
 int main() {
 	try {
-		TutorialApplication app;
+		GameMap app;
 		app.initApp();
 		app.getRoot()->startRendering();
 		app.closeApp();
