@@ -136,7 +136,7 @@ void GameMap::setup() {
 	//! [pointlight]
 
 	//! [pointlightcolor]
-	pointLight->setDiffuseColour(0.3, 0.3, 0.3);
+	pointLight->setDiffuseColour(1, 1, 1);
 	pointLight->setSpecularColour(0.3, 0.3, 0.3);
 	//! [pointlightcolor]
 
