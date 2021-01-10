@@ -159,6 +159,7 @@ bool GameMap::mouseMoved(const MouseMotionEvent &evt) {
 	if(movingMouse) {
 		auto movement = Vector3(-evt.xrel, 0, -evt.yrel);
 		camNode->setPosition(camNode->getPosition() + movement);
+		return true;
 	}
 
 	return InputListener::mouseMoved(evt);
@@ -166,12 +167,12 @@ bool GameMap::mouseMoved(const MouseMotionEvent &evt) {
 
 bool GameMap::mousePressed(const MouseButtonEvent &evt) {
 	movingMouse = true;
-	return InputListener::mousePressed(evt);
+	return true;
 }
 
 bool GameMap::mouseReleased(const MouseButtonEvent &evt) {
 	movingMouse = false;
-	return InputListener::mouseReleased(evt);
+	return true;
 }
 
 int main() {
